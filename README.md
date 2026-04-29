@@ -25,7 +25,7 @@ My contributions included:
 - Creating training progress and evaluation visualizations
 - Final presentation & ppt 
 
-## Project Pipeline
+## Model Development Pipeline
 
 ![Project Pipeline](images/pipeline_1.jpeg)
 
