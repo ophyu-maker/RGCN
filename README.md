@@ -24,3 +24,7 @@ My contributions included:
 - Building the RGCN model & workflow
 - Creating training progress and evaluation visualizations
 - Final presentation
+
+## Project Pipeline
+
+![Project Pipeline](images/pipeline_1.jpeg)
