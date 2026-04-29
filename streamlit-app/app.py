@@ -527,9 +527,8 @@ if st.button("Predict Side Effects"):
 with st.expander("How this prediction works"):
     st.write(
         """
-        The app takes the selected drug and indication, then tests that pair against
-        every side effect in the model vocabulary. The RGCN creates node embeddings
-        from the trained graph, and the MLP scorer gives each drug–indication–side-effect
-        triple a score. Side effects with highest score are presented as likely side effects.
+        The app takes the selected drug and indication, then evaluates that pair against every side effect in the model vocabulary. The RGCN creates node embeddings from the trained graph, and the MLP scorer assigns a score to each drug–indication–side-effect combination.
+        A validation threshold of 85% is used for prediction. Side effects with scores above this threshold are presented as likely side effects.
+        One limitation is that the model can only predict side effects that were included in the 500,000-row training subset. Side effects not represented in that subset are outside the model’s vocabulary and cannot be predicted by the current app.
         """
     )
