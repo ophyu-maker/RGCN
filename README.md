@@ -23,7 +23,7 @@ My contributions included:
 - Data filtering & feature engineering
 - Building the RGCN model & workflow
 - Creating training progress and evaluation visualizations
-- Final presentation
+- Final presentation & ppt 
 
 ## Project Pipeline
 
