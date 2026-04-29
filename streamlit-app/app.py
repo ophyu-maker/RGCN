@@ -172,12 +172,13 @@ footer {
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<h1>💊 Drug Side Effects Prediction</h1>
-<p class="app-subtitle">
-Select a drug and clinical indication to predict the most likely side effects using the trained RGCN model.
-</p>
+<div class="hero-banner">
+    <h1>💊 Drug Side Effects Prediction</h1>
+    <p>
+    Select a drug and clinical indication to predict likely side effects using a trained RGCN model.
+    </p>
+</div>
 """, unsafe_allow_html=True)
-
 
 # =========================================================
 # File paths
