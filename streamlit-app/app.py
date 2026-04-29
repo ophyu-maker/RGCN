@@ -49,7 +49,7 @@ st.markdown("""
 }
 
 .hero-banner {
-    background: linear-gradient(135deg, #0f2a3a 0%, #123f59 100%);
+    background: linear-gradient(135deg, #2f80ed 0%, #56ccf2 100%);
     border-radius: 22px;
     padding: 2rem;
     margin-bottom: 1.8rem;
