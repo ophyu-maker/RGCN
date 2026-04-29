@@ -25,89 +25,48 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-
-/* =========================
-   Main app background
-========================= */
 .stApp {
     background: linear-gradient(135deg, #f4f8ff 0%, #eef7f9 45%, #fdfcff 100%);
     color: #1f2937;
 }
 
-/* =========================
-   Main content card
-========================= */
 .main .block-container {
     max-width: 1200px;
     padding-top: 2rem;
     padding-bottom: 3rem;
     padding-left: 3rem;
     padding-right: 3rem;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.94);
     border-radius: 24px;
     box-shadow: 0 8px 30px rgba(31, 41, 55, 0.10);
     margin-top: 2rem;
 }
 
-/* =========================
-   Title styling
-========================= */
-h1 {
-    color: #1d3557;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    margin-bottom: 0.3rem;
+.hero-banner {
+    background: linear-gradient(135deg, #0f2a3a 0%, #123f59 100%);
+    border-radius: 22px;
+    padding: 2rem;
+    margin-bottom: 1.8rem;
+    color: white;
+    box-shadow: 0 10px 28px rgba(15, 42, 58, 0.25);
+}
+
+.hero-banner h1 {
+    color: white;
+    margin-bottom: 0.4rem;
+}
+
+.hero-banner p {
+    color: #d7ecf7;
+    font-size: 17px;
+    line-height: 1.5;
 }
 
 h2, h3 {
-    color: #2a4d69;
+    color: #1d3557;
     font-weight: 700;
 }
 
-/* Paragraph text */
-p, li, div {
-    font-size: 16px;
-}
-
-/* =========================
-   Subtitle / description
-========================= */
-.app-subtitle {
-    color: #52616b;
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-}
-
-/* =========================
-   Section cards
-========================= */
-.section-card {
-    background: #ffffff;
-    border: 1px solid #e5edf5;
-    border-radius: 18px;
-    padding: 1.25rem 1.5rem;
-    box-shadow: 0 4px 14px rgba(31, 41, 55, 0.06);
-    margin-bottom: 1.2rem;
-}
-
-/* =========================
-   Streamlit input widgets
-========================= */
-div[data-baseweb="select"] > div {
-    border-radius: 12px;
-    border-color: #d5e3f0;
-}
-
-.stSelectbox label,
-.stSlider label {
-    color: #1d3557 !important;
-    font-weight: 700 !important;
-}
-
-/* =========================
-   Button styling
-========================= */
 .stButton > button {
     background: linear-gradient(135deg, #2f80ed 0%, #56ccf2 100%);
     color: white;
@@ -117,57 +76,17 @@ div[data-baseweb="select"] > div {
     font-weight: 700;
     font-size: 16px;
     box-shadow: 0 5px 16px rgba(47, 128, 237, 0.28);
-    transition: all 0.2s ease-in-out;
 }
 
-.stButton > button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(47, 128, 237, 0.35);
-    color: white;
-}
-
-.stButton > button:active {
-    transform: translateY(0px);
-}
-
-/* =========================
-   Dataframe styling
-========================= */
 [data-testid="stDataFrame"] {
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid #e5edf5;
-    box-shadow: 0 4px 14px rgba(31, 41, 55, 0.06);
 }
 
-/* =========================
-   Info / warning boxes
-========================= */
-[data-testid="stAlert"] {
-    border-radius: 14px;
-    border: none;
-}
-
-/* =========================
-   Expander styling
-========================= */
-.streamlit-expanderHeader {
-    font-weight: 700;
-    color: #1d3557;
-}
-
-/* =========================
-   Hide Streamlit default footer
-========================= */
-footer {
+footer, #MainMenu {
     visibility: hidden;
 }
-
-/* Optional: reduce top menu visual weight */
-#MainMenu {
-    visibility: hidden;
-}
-
 </style>
 """, unsafe_allow_html=True)
 
