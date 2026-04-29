@@ -67,10 +67,11 @@ drug_id + indication_id + side_effect_id
 Each unique drug, clinical indication, and side effect became a node in the graph. Because these three node types were stored in one shared graph, offset values were used to prevent ID overlap between drugs, indications, and side effects.
 
 Graph edges were then created from the training triples. The model used relation types to distinguish different kinds of connections:
-drug → indication
-drug → side effect
-indication → drug
-side effect → drug
+
+- drug → indication
+- drug → side effect
+- indication → drug
+- side effect → drug
 
 Reverse edges were added so that information could flow in both directions during RGCN message passing. These graph edges allowed the model to learn from the relationships between drugs, clinical indications, and side effects instead of treating each row as an independent table record.
 
@@ -99,6 +100,7 @@ A higher probability means the model considers that drug–indication–side eff
 ### 6. Loss Function and Optimization
 
 The task was treated as a binary classification problem:
+
 1 = known true relationship
 0 = generated negative relationship
 
@@ -108,6 +110,7 @@ The Adam optimizer was used to update the model parameters, including the node e
 ### 7. Validation and Threshold Selection
 
 During training, the model was evaluated on the validation set after each epoch. Several validation metrics were tracked:
+
 ROC-AUC
 PR-AUC
 F1 score
