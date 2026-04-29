@@ -381,6 +381,6 @@ with st.expander("How this prediction works"):
         The app takes the selected drug and indication, then tests that pair against
         every side effect in the model vocabulary. The RGCN creates node embeddings
         from the trained graph, and the MLP scorer gives each drug–indication–side-effect
-        triple a probability score.
+        triple a score. Side effects with highest score are presented as likely side effects.
         """
     )
