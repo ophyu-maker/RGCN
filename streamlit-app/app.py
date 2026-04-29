@@ -37,6 +37,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 MODEL_PATH = os.path.join(BASE_DIR, "rgcn_model_v2_22apr.pth")
 ARTIFACT_PATH = os.path.join(BASE_DIR, "rgcn_streamlit_artifacts.pkl")
+DATASET_CHECK_PATH = os.path.join(BASE_DIR, "rgcn_dataset_check.csv")
+DRUG_IND_PAIR_PATH = os.path.join(BASE_DIR, "rgcn_drug_indication_pairs.csv")
 
 # =========================================================
 # Load artifacts
@@ -47,6 +49,31 @@ def load_artifacts():
         artifacts = pickle.load(f)
     return artifacts
 
+@st.cache_data
+def load_drug_ind_pairs():
+    pairs = pd.read_csv(DRUG_IND_PAIR_PATH)
+
+    pairs["drug_name"] = pairs["drug_name"].astype(str).str.lower().str.strip()
+    pairs["indication_name"] = pairs["indication_name"].astype(str).str.lower().str.strip()
+
+    pairs = pairs.drop_duplicates()
+
+    return pairs
+
+
+drug_ind_pairs = load_drug_ind_pairs()
+
+@st.cache_data
+def load_dataset_check():
+    df_check = pd.read_csv(DATASET_CHECK_PATH)
+
+    for col in ["drug_name", "indication_name", "side_effect_name"]:
+        df_check[col] = df_check[col].astype(str).str.lower().str.strip()
+
+    return df_check
+
+
+df_check = load_dataset_check()
 
 artifacts = load_artifacts()
 
@@ -290,24 +317,29 @@ def predict_side_effects(drug_name, indication_name, top_k=5):
 # =========================================================
 # Dropdown UI
 # =========================================================
-drug_options = sorted(drug2id.keys())
-indication_options = sorted(ind2id.keys())
+drug_options = sorted(drug_ind_pairs["drug_name"].unique())
 
-col1, col2 = st.columns(2)
+selected_drug = st.selectbox(
+    "Select drug",
+    drug_options,
+    index=0
+)
 
-with col1:
-    selected_drug = st.selectbox(
-        "Select drug",
-        drug_options,
-        index=0
-    )
+filtered_indications = sorted(
+    drug_ind_pairs[
+        drug_ind_pairs["drug_name"] == selected_drug
+    ]["indication_name"].unique()
+)
 
-with col2:
-    selected_indication = st.selectbox(
-        "Select indication",
-        indication_options,
-        index=0
-    )
+if len(filtered_indications) == 0:
+    st.warning("No indications found for the selected drug.")
+    st.stop()
+
+selected_indication = st.selectbox(
+    "Select indication",
+    filtered_indications,
+    index=0
+)
 
 top_k = st.slider(
     "Number of side effects to show",
@@ -328,6 +360,23 @@ if st.button("Predict Side Effects"):
     if error:
         st.error(error)
     else:
+        selected_drug_clean = selected_drug.lower().strip()
+        selected_ind_clean = selected_indication.lower().strip()
+
+        actual_side_effects = set(
+            df_check[
+                (df_check["drug_name"] == selected_drug_clean)
+                & (df_check["indication_name"] == selected_ind_clean)
+            ]["side_effect_name"].unique()
+        )
+
+        results["found_in_dataset_for_pair"] = results["side_effect"].apply(
+            lambda x: "Yes" if x.lower().strip() in actual_side_effects else "No"
+        )
+
+        display_df = results.copy()
+        display_df["probability"] = display_df["probability"].round(4)
+
         st.subheader("Predicted Side Effects")
 
         st.write(
@@ -336,17 +385,38 @@ if st.button("Predict Side Effects"):
             f"**Validation threshold:** {best_threshold:.2f}"
         )
 
-        display_df = results.copy()
-        display_df["probability"] = display_df["probability"].round(4)
-
         st.dataframe(
             display_df,
             use_container_width=True
         )
 
+        matched_count = (
+            display_df["found_in_dataset_for_pair"] == "Yes"
+        ).sum()
+
+        st.info(
+            f"{matched_count} out of the top {len(display_df)} predicted side effects "
+            f"were found in the cleaned dataset for this exact drug–indication pair."
+        )
+
+        with st.expander("Show actual side effects from dataset for this pair"):
+            if len(actual_side_effects) == 0:
+                st.write(
+                    "No exact matching side effects were found in the cleaned dataset "
+                    "for this drug–indication pair."
+                )
+            else:
+                actual_df = pd.DataFrame({
+                    "actual_side_effect_from_dataset": sorted(actual_side_effects)
+                })
+
+                st.dataframe(actual_df, use_container_width=True)
+
         st.bar_chart(
             display_df.set_index("side_effect")["probability"]
         )
+
+   
 
 
 # =========================================================
