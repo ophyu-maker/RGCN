@@ -28,3 +28,7 @@ My contributions included:
 ## Project Pipeline
 
 ![Project Pipeline](images/pipeline_1.jpeg)
+
+## Final Presentation
+
+[View Final Presentation PDF](Presentation/SideEffectsproject_GithubUpload.pdf)
