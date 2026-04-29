@@ -90,13 +90,13 @@ footer, #MainMenu {
 </style>
 """, unsafe_allow_html=True)
 
+st.image(BANNER_PATH, use_container_width=True)
+
 st.markdown("""
-<div class="hero-banner">
-    <h1>💊 Drug Side Effects Prediction</h1>
-    <p>
-    Select a drug and clinical indication to predict likely side effects using a trained RGCN model.
-    </p>
-</div>
+<h1>💊 Drug Side Effects Prediction</h1>
+<p class="app-subtitle">
+Select a drug and clinical indication to predict likely side effects using the trained RGCN model.
+</p>
 """, unsafe_allow_html=True)
 
 # =========================================================
@@ -107,6 +107,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "rgcn_model_v2_22apr.pth")
 ARTIFACT_PATH = os.path.join(BASE_DIR, "rgcn_streamlit_artifacts.pkl")
 DRUG_IND_PAIR_PATH = os.path.join(BASE_DIR, "rgcn_drug_indication_pairs.csv")
+BANNER_PATH = os.path.join(BASE_DIR, "banner.png")
 
 # =========================================================
 # Load artifacts
