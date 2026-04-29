@@ -14,3 +14,13 @@ Python, PyTorch, DGL/PyTorch Geometric, pandas, scikit-learn, Streamlit
 
 ## Limitations
 This project is for educational and exploratory ML purposes only and is not intended for medical decision-making.
+
+## Team & Contributions
+
+This was a group project completed as part of an Applied Machine Learning course.
+
+My contributions included:
+- Data filtering & feature engineering
+- Building the RGCN model & workflow
+- Creating training progress and evaluation visualizations
+- Final presentation
