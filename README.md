@@ -101,8 +101,8 @@ A higher probability means the model considers that drug–indication–side eff
 
 The task was treated as a binary classification problem:
 
-1 = known true relationship
-0 = generated negative relationship
+- 1 = known true relationship
+- 0 = generated negative relationship
 
 The model used BCEWithLogitsLoss, which is commonly used for binary classification. Because there were more negative examples than positive examples, a positive class weight was added to the loss function. This made mistakes on positive examples more costly and helped the model pay attention to true side effect relationships.
 The Adam optimizer was used to update the model parameters, including the node embeddings, RGCN layer weights, and MLP scorer weights.
@@ -111,10 +111,10 @@ The Adam optimizer was used to update the model parameters, including the node e
 
 During training, the model was evaluated on the validation set after each epoch. Several validation metrics were tracked:
 
-ROC-AUC
-PR-AUC
-F1 score
-Precision
+ROC-AUC/
+PR-AUC/
+F1 score/
+Precision/
 Recall
 
 The best model checkpoint was selected based on validation PR-AUC. PR-AUC was important because this project involves an imbalanced prediction task where positive side effect relationships are much fewer than all possible negative combinations.
@@ -126,10 +126,10 @@ The model also tested different probability thresholds from 0.10 to 0.90. The th
 After training, the best model state was restored and evaluated on the held-out test set. The test set was not used for training or threshold tuning, so it provided a more fair estimate of final model performance.
 The final evaluation reported:
 
-ROC-AUC
-PR-AUC
-F1 score
-Precision
+ROC-AUC/
+PR-AUC/
+F1 score/
+Precision/
 Recall
 
 ## Limitations
