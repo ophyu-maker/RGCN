@@ -98,7 +98,32 @@ footer, #MainMenu {
 </style>
 """, unsafe_allow_html=True)
 
-st.image(BANNER_PATH, use_container_width=True)
+import base64
+
+def image_to_base64(path):
+    with open(path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
+
+banner_base64 = image_to_base64(BANNER_PATH)
+
+st.markdown(f"""
+<style>
+.hero-image {{
+    height: 260px;
+    border-radius: 22px;
+    margin-bottom: 1.6rem;
+    background-image: linear-gradient(
+        rgba(5, 20, 35, 0.15),
+        rgba(5, 20, 35, 0.15)
+    ), url("data:image/jpeg;base64,{banner_base64}");
+    background-size: cover;
+    background-position: center 48%;
+    box-shadow: 0 10px 28px rgba(15, 42, 58, 0.22);
+}}
+</style>
+
+<div class="hero-image"></div>
+""", unsafe_allow_html=True)
 
 st.markdown("""
 <h1>💊 Drug Side Effects Prediction</h1>
