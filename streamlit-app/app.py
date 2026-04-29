@@ -11,10 +11,7 @@ import torch.nn.functional as F
 from torch_geometric.nn import RGCNConv
 
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-MODEL_PATH = os.path.join(BASE_DIR, "rgcn_model_v2_22apr.pth")
-ARTIFACT_PATH = os.path.join(BASE_DIR, "rgcn_streamlit_artifacts.pkl")
 
 
 # =========================================================
@@ -36,9 +33,10 @@ st.write(
 # =========================================================
 # File paths
 # =========================================================
-MODEL_PATH = "rgcn_model_v2_22apr.pth"
-ARTIFACT_PATH = "rgcn_streamlit_artifacts.pkl"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+MODEL_PATH = os.path.join(BASE_DIR, "rgcn_model_v2_22apr.pth")
+ARTIFACT_PATH = os.path.join(BASE_DIR, "rgcn_streamlit_artifacts.pkl")
 
 # =========================================================
 # Load artifacts
