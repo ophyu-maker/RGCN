@@ -12,7 +12,7 @@ This project uses a Relational Graph Convolutional Network (RGCN) to predict pot
 ## Tools
 Python, PyTorch, DGL/PyTorch Geometric, pandas, scikit-learn, Streamlit
 
-## Limitations
+## Disclaimer
 This project is for educational and exploratory ML purposes only and is not intended for medical decision-making.
 
 ## Team & Contributions
@@ -109,13 +109,7 @@ The Adam optimizer was used to update the model parameters, including the node e
 
 ### 7. Validation and Threshold Selection
 
-During training, the model was evaluated on the validation set after each epoch. Several validation metrics were tracked:
-
-ROC-AUC/
-PR-AUC/
-F1 score/
-Precision/
-Recall
+During training, the model was evaluated on the validation set after each epoch. Several validation metrics were tracked using ROC-AUC/ PR-AUC/ F1 score/ Precision/ Recall.
 
 The best model checkpoint was selected based on validation PR-AUC. PR-AUC was important because this project involves an imbalanced prediction task where positive side effect relationships are much fewer than all possible negative combinations.
 
@@ -124,29 +118,23 @@ The model also tested different probability thresholds from 0.10 to 0.90. The th
 ### 8. Final Test Evaluation
 
 After training, the best model state was restored and evaluated on the held-out test set. The test set was not used for training or threshold tuning, so it provided a more fair estimate of final model performance.
-The final evaluation reported:
-
-ROC-AUC/
-PR-AUC/
-F1 score/
-Precision/
-Recall
+The final evaluation reported using ROC-AUC/ PR-AUC/ F1 score/ Precision/ Recall.
 
 ## Limitations
-This project is an applied machine learning prototype and has several limitations:
-The model was trained on a sampled subset of the cleaned dataset to keep training manageable.
-Rare side effects appearing fewer than 20 times were removed, so the model may not predict very rare adverse reactions.
-Predictions depend on whether the drug, clinical indication, and side effect nodes exist in the graph.
-Some predictions may reflect learned graph patterns rather than confirmed side effects for the exact drug–indication pair.
-High evaluation metrics do not necessarily mean the predicted probabilities are clinically calibrated.
-The dataset may contain reporting bias, missing relationships, or incomplete adverse reaction information.
+This project is an applied machine learning prototype and has several limitations.
+- The model was trained on a sampled subset of the cleaned dataset to keep training manageable.
+- Rare side effects appearing fewer than 20 times were removed, so the model may not predict very rare adverse reactions.
+- Predictions depend on whether the drug, clinical indication, and side effect nodes exist in the graph.
+- Some predictions may reflect learned graph patterns rather than confirmed side effects for the exact drug–indication pair.
+- High evaluation metrics do not necessarily mean the predicted probabilities are clinically calibrated.
+- The dataset may contain reporting bias, missing relationships, or incomplete adverse reaction information.
 
 ## Future Improvements
 Future work could improve the project by:
-Training on the full cleaned dataset instead of a sampled subset
-Adding molecular structure features such as SMILES or drug fingerprints
-Improving rare side effect handling and class imbalance treatment
-Validating predictions against external medical knowledge sources
+- Training on the full cleaned dataset instead of a sampled subset
+- Adding molecular structure features such as SMILES or drug fingerprints
+- Improving rare side effect handling and class imbalance treatment
+- Validating predictions against external medical knowledge sources
 
 
 ## Final Presentation
