@@ -10,7 +10,15 @@ import torch.nn.functional as F
 
 from torch_geometric.nn import RGCNConv
 
+# =========================================================
+# File paths
+# =========================================================
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+MODEL_PATH = os.path.join(BASE_DIR, "rgcn_model_v2_22apr.pth")
+ARTIFACT_PATH = os.path.join(BASE_DIR, "rgcn_streamlit_artifacts.pkl")
+DRUG_IND_PAIR_PATH = os.path.join(BASE_DIR, "rgcn_drug_indication_pairs.csv")
+BANNER_PATH = os.path.join(BASE_DIR, "banner.jpeg")
 
 
 
@@ -99,15 +107,7 @@ Select a drug and clinical indication to predict likely side effects using the t
 </p>
 """, unsafe_allow_html=True)
 
-# =========================================================
-# File paths
-# =========================================================
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-MODEL_PATH = os.path.join(BASE_DIR, "rgcn_model_v2_22apr.pth")
-ARTIFACT_PATH = os.path.join(BASE_DIR, "rgcn_streamlit_artifacts.pkl")
-DRUG_IND_PAIR_PATH = os.path.join(BASE_DIR, "rgcn_drug_indication_pairs.csv")
-BANNER_PATH = os.path.join(BASE_DIR, "banner.jpeg")
 
 # =========================================================
 # Load artifacts
