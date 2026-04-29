@@ -18,8 +18,6 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "rgcn_model_v2_22apr.pth")
 ARTIFACT_PATH = os.path.join(BASE_DIR, "rgcn_streamlit_artifacts.pkl")
 DRUG_IND_PAIR_PATH = os.path.join(BASE_DIR, "rgcn_drug_indication_pairs.csv")
-BANNER_PATH = os.path.join(BASE_DIR, "banner.jpeg")
-
 
 
 # =========================================================
@@ -98,38 +96,13 @@ footer, #MainMenu {
 </style>
 """, unsafe_allow_html=True)
 
-import base64
-
-def image_to_base64(path):
-    with open(path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode()
-
-banner_base64 = image_to_base64(BANNER_PATH)
-
-st.markdown(f"""
-<style>
-.hero-image {{
-    height: 260px;
-    border-radius: 22px;
-    margin-bottom: 1.6rem;
-    background-image: linear-gradient(
-        rgba(5, 20, 35, 0.15),
-        rgba(5, 20, 35, 0.15)
-    ), url("data:image/jpeg;base64,{banner_base64}");
-    background-size: cover;
-    background-position: center 48%;
-    box-shadow: 0 10px 28px rgba(15, 42, 58, 0.22);
-}}
-</style>
-
-<div class="hero-image"></div>
-""", unsafe_allow_html=True)
-
 st.markdown("""
-<h1>💊 Drug Side Effects Prediction</h1>
-<p class="app-subtitle">
-Select a drug and clinical indication to predict likely side effects using the trained RGCN model.
-</p>
+<div class="hero-banner">
+    <h1>💊 Drug Side Effects Prediction</h1>
+    <p>
+    Select a drug and clinical indication to predict likely side effects using a trained RGCN model.
+    </p>
+</div>
 """, unsafe_allow_html=True)
 
 
