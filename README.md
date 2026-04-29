@@ -20,8 +20,8 @@ This project is for educational and exploratory ML purposes only and is not inte
 This was a group project completed as part of an Applied Machine Learning course.
 
 My contributions included:
-- Data filtering & feature engineering
-- Building the RGCN model & workflow
+- Data filtering & feature engineering 
+- Building the RGCN model & training
 - Creating training progress and evaluation visualizations
 - Final presentation & ppt
 
