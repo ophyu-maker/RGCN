@@ -33,7 +33,7 @@ During exploratory data analysis, some side effects and clinical indications app
 
 ## Methodology
 
-###0. Model Development Pipeline
+### Model Development Pipeline
 
 ![Project Pipeline](images/pipeline_1.jpeg)
 
@@ -59,6 +59,7 @@ Each record was represented as a triple:
 
 ```text
 drug + indication + side effect
+```
 
 
 
