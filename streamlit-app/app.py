@@ -23,6 +23,29 @@ st.set_page_config(
     layout="wide"
 )
 
+st.markdown("""
+    <style>
+    .stApp {
+        background: linear-gradient(to bottom right, #f7f9fc, #eaf3ff);
+    }
+
+    h1, h2, h3 {
+        color: #1f2a44;
+    }
+
+    [data-testid="stDataFrame"] {
+        background-color: white;
+        border-radius: 12px;
+    }
+
+    div[data-testid="stVerticalBlock"] > div:has(> div[data-testid="stDataFrame"]) {
+        background-color: rgba(255,255,255,0.85);
+        padding: 12px;
+        border-radius: 12px;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 st.title("💊 Drug Side Effects Prediction")
 st.write(
     "Select a drug and clinical indication to predict the most likely side effects "
