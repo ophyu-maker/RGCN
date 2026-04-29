@@ -356,18 +356,18 @@ if st.button("Predict Side Effects"):
             f"**Validation threshold:** {best_threshold:.2f}"
         )
 
-        display_df = results.copy()
-        display_df["probability"] = display_df["probability"].round(4)
+        display_df = results[["side_effect", "predicted_label"]].copy()
+
+        display_df = display_df.rename(columns={
+            "side_effect": "Predicted Side Effect",
+            "predicted_label": "Prediction"
+        })
 
         st.dataframe(
             display_df,
-            use_container_width=True
-        )
-
-        st.bar_chart(
-            display_df.set_index("side_effect")["probability"]
-        )
-
+            use_container_width=True,
+            hide_index=True
+    )
 
 
    
