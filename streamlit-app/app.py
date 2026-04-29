@@ -107,7 +107,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "rgcn_model_v2_22apr.pth")
 ARTIFACT_PATH = os.path.join(BASE_DIR, "rgcn_streamlit_artifacts.pkl")
 DRUG_IND_PAIR_PATH = os.path.join(BASE_DIR, "rgcn_drug_indication_pairs.csv")
-BANNER_PATH = os.path.join(BASE_DIR, "banner.png")
+BANNER_PATH = os.path.join(BASE_DIR, "banner.jpeg")
 
 # =========================================================
 # Load artifacts
