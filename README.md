@@ -1,5 +1,5 @@
 # RGCN
-Using RGCN model to explore drug related side effects 
+(Using RGCN model to explore drug related side effects)
 
 This project uses a Relational Graph Convolutional Network (RGCN) to predict potential drug side effects based on drug–indication–side effect relationships.
 
