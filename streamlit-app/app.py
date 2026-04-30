@@ -400,7 +400,7 @@ selected_indication = st.selectbox(
 top_k = st.slider(
     "Number of side effects to show",
     min_value=1,
-    max_value=20,
+    max_value=10,
     value=5
 )
 
