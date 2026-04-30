@@ -6,7 +6,6 @@ This project uses a Relational Graph Convolutional Network (RGCN) to predict pot
 - Built a heterogeneous graph with drug, indication, and side effect nodes
 - Trained an RGCN model for link prediction / side effect prediction
 - Evaluated performance using ROC-AUC, PR-AUC, F1, precision, and recall
-- Built a Streamlit demo app for interactive prediction
 
 ## Tools
 Python, PyTorch, DGL/PyTorch Geometric, pandas, scikit-learn, Streamlit
@@ -108,7 +107,7 @@ The Adam optimizer was used to update the model parameters, including the node e
 
 ### 7. Validation and Threshold Selection
 
-During training, the model was evaluated on the validation set after each epoch. Several validation metrics were tracked using ROC-AUC/ PR-AUC/ F1 score/ Precision/ Recall.
+During training, the model was evaluated on the validation set after each epoch. Several validation metrics such as ROC-AUC, PR-AUC, F1 score, Precision, and Recall were tracked .
 
 The best model checkpoint was selected based on validation PR-AUC. PR-AUC was important because this project involves an imbalanced prediction task where positive side effect relationships are much fewer than all possible negative combinations.
 
