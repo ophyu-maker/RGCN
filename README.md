@@ -140,3 +140,11 @@ Future work could improve the project by:
 ## Final Presentation
 
 [View Final Presentation PDF](Presentation/SideEffectsproject_GithubUpload.pdf)
+
+## Live Demo
+
+A Streamlit demo is available for testing the trained RGCN model.
+
+🔗 **App:** [Drug Side Effects Prediction App](https://rgcn-demo.streamlit.app)
+
+The app allows users to select a drug and clinical indication from dropdown menus and returns the model’s predicted likely side effects.
