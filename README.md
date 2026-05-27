@@ -2,6 +2,8 @@
 
 This project uses a Relational Graph Convolutional Network (RGCN) to predict potential drug side effects based on drug–indication–side effect relationships.
 
+> Note: This project was developed as part of graduate-level data analytics learning and has been adapted for portfolio demonstration. The repository uses public data and does not include private course materials, assignment prompts, or restricted datasets.
+
 ## Project Overview
 - Built a heterogeneous graph with drug, indication, and side effect nodes
 - Trained an RGCN model for link prediction / side effect prediction
