@@ -146,3 +146,6 @@ A Streamlit demo is available for testing the trained RGCN model.
 🔗 **App:** [Drug Side Effects Prediction App](https://rgcn-demo.streamlit.app)
 
 This Streamlit app was created independently by me as an additional extension of the project to demonstrate how the trained model could be used in an interactive application.
+
+> Note: The Streamlit app may go into sleep mode after a period of inactivity. If the app does not load immediately, please allow a few moments for it to wake up.
+
